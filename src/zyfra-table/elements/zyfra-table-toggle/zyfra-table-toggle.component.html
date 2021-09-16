@@ -1,0 +1,13 @@
+<button
+  mat-icon-button
+  [style.visibility]="!all && !data.expandable ? 'hidden' : ''"
+  [style.marginLeft.px]="all ? 0 : data.level * 18"
+  (click)="toggleExpand($event)"
+>
+  <i *ngIf="isExpanded(); else right" class="pi pi-chevron-down"></i>
+  
+  <ng-template #right>
+    <i class="pi pi-chevron-right"></i>
+  </ng-template>
+</button>
+<ng-content></ng-content>

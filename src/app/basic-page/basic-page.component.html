@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Zyfra</h1>
+
+  <pre>{{ (table ? table.activeItem : {}) | json }}</pre>
+
+  <zyfra-table [data]="dataSource" [columns]="displayedColumns">
+    <ng-container zyfraColumnDef="position">
+      <th zyfra-header-cell *zyfraHeaderCellDef> No. </th>
+      <td zyfra-cell *zyfraCellDef="let index = index"> {{index + 1}} </td>
+    </ng-container>
+
+    <ng-container zyfraColumnDef="name">
+      <th zyfra-header-cell *zyfraHeaderCellDef> Name </th>
+      <td zyfra-cell *zyfraCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container zyfraColumnDef="weight">
+      <th zyfra-header-cell *zyfraHeaderCellDef> Weight </th>
+      <td zyfra-cell *zyfraCellDef="let element"> {{element.weight}} </td>
+    </ng-container>
+
+    <ng-container zyfraColumnDef="symbol">
+      <th zyfra-header-cell *zyfraHeaderCellDef> Symbol </th>
+      <td zyfra-cell *zyfraCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+
+    <tr zyfra-header-row *zyfraHeaderRowDef="displayedColumns"></tr>
+    <tr *zyfraRowDef="let row; columns: displayedColumns;" [zyfra-row]="row" (click)="rowClick()"></tr>
+  </zyfra-table>
+</div>

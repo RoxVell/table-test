@@ -1,0 +1,43 @@
+<div class="container">
+  <zyfra-table [data]="transactions" class="mat-elevation-z8" [columns]="displayedColumns">
+    <!-- Item Column -->
+    <ng-container zyfraColumnDef="item">
+      <th zyfra-header-cell *zyfraHeaderCellDef> Item </th>
+      <td zyfra-cell *zyfraCellDef="let transaction"> {{transaction.item}} </td>
+      <td zyfra-footer-cell *zyfraFooterCellDef> Total </td>
+    </ng-container>
+
+    <!-- Cost Column -->
+    <ng-container zyfraColumnDef="cost">
+      <th zyfra-header-cell *zyfraHeaderCellDef> Cost </th>
+      <td zyfra-cell *zyfraCellDef="let transaction"> {{transaction.cost | currency}} </td>
+      <td zyfra-footer-cell *zyfraFooterCellDef> {{getTotalCost() | currency}} </td>
+    </ng-container>
+
+    <!-- Item Description Column -->
+    <ng-container zyfraColumnDef="item-description">
+      <th zyfra-header-cell *zyfraHeaderCellDef> Name of the item purchased </th>
+    </ng-container>
+
+    <!-- Cost Description Column -->
+    <ng-container zyfraColumnDef="cost-description">
+      <th zyfra-header-cell *zyfraHeaderCellDef> Cost of the item in USD </th>
+    </ng-container>
+
+    <!-- Disclaimer column -->
+    <ng-container zyfraColumnDef="disclaimer">
+      <td zyfra-footer-cell *zyfraFooterCellDef colspan="2">
+        Please note that the cost of items displayed are completely and totally made up.
+      </td>
+    </ng-container>
+
+    <!-- The table will render two header rows, one data row per data object, and two footer rows. -->
+    <tr zyfra-header-row *zyfraHeaderRowDef="displayedColumns" class="example-first-header-row"></tr>
+    <tr zyfra-header-row *zyfraHeaderRowDef="['item-description', 'cost-description']" class="example-second-header-row"></tr>
+
+    <tr zyfra-row *zyfraRowDef="let row; columns: displayedColumns;"></tr>
+
+    <tr zyfra-footer-row *zyfraFooterRowDef="displayedColumns" class="example-first-footer-row"></tr>
+    <tr zyfra-footer-row *zyfraFooterRowDef="['disclaimer']" class="example-second-footer-row"></tr>
+  </zyfra-table>
+</div>

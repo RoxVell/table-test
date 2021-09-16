@@ -1,0 +1,11 @@
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  padding-right: 16px;
+}
+
+i {
+  color: #7887A5;
+  font-size: 10px;
+}

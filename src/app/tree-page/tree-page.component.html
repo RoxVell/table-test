@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>Zyfra</h1>
+
+  <zyfra-table
+    [data]="data"
+    [nesting]="nesting"
+    [selectable]="true"
+    zyfraSort
+    [zyfraSortDisableClear]="true"
+    zyfraSortActive="size"
+    zyfraSortDirection="desc"
+    [sortRules]="sortRules"
+  >
+    <ng-container zyfraColumnDef="name" sticky>
+      <th zyfra-header-cell *zyfraHeaderCellDef zyfra-sort-header>
+        <zyfra-table-toggle [all]="true"></zyfra-table-toggle>
+        <zyfra-table-select [all]="true"></zyfra-table-select>
+        <span>Name</span>
+      </th>
+      
+      <td zyfra-cell *zyfraCellDef="let data" [zyfra-table-toggle]="data" (toggle)="stopProp($event)">
+        <zyfra-table-select [data]="data"></zyfra-table-select>
+        <span>{{ data.name }}</span>
+      </td>
+    </ng-container>
+  
+    <ng-container zyfraColumnDef="type">
+      <th zyfra-header-cell *zyfraHeaderCellDef zyfra-sort-header>Тип</th>
+      <td zyfra-cell *zyfraCellDef="let data">{{ data.type }}</td>
+    </ng-container>
+
+    <ng-container zyfraColumnDef="size">
+      <th zyfra-header-cell *zyfraHeaderCellDef zyfra-sort-header>Размер</th>
+      <td zyfra-cell *zyfraCellDef="let data">{{ data.size }}</td>
+    </ng-container>
+  
+    <tr zyfra-header-row *zyfraHeaderRowDef="columns; sticky: true"></tr>
+    <tr *zyfraRowDef="let row; columns: columns;" [zyfra-row]="row"></tr>
+  </zyfra-table>
+</div>

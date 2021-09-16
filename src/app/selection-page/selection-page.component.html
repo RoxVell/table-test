@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>Zyfra</h1>
+
+  <zyfra-table
+    zyfraSort
+    [data]="data"
+    [columns]="columns"
+    [selectable]="true"
+  >
+    <ng-container zyfraColumnDef="checked">
+      <th zyfra-header-cell *zyfraHeaderCellDef>
+        <zyfra-table-select [all]="true"></zyfra-table-select>
+      </th>
+      <td zyfra-cell *zyfraCellDef="let element">
+        <zyfra-table-select [data]="element"></zyfra-table-select>
+      </td>
+    </ng-container>
+
+    <ng-container zyfraColumnDef="position">
+      <th zyfra-header-cell *zyfraHeaderCellDef zyfra-sort-header> No. </th>
+      <td zyfra-cell *zyfraCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+
+    <ng-container zyfraColumnDef="name">
+      <th zyfra-header-cell *zyfraHeaderCellDef zyfra-sort-header> Name </th>
+      <td zyfra-cell *zyfraCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container zyfraColumnDef="weight">
+      <th zyfra-header-cell *zyfraHeaderCellDef zyfra-sort-header> Weight </th>
+      <td zyfra-cell *zyfraCellDef="let element"> {{element.weight}} </td>
+    </ng-container>
+
+    <ng-container zyfraColumnDef="symbol">
+      <th zyfra-header-cell *zyfraHeaderCellDef zyfra-sort-header> Symbol </th>
+      <td zyfra-cell *zyfraCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+
+    <tr zyfra-header-row *zyfraHeaderRowDef="columns"></tr>
+    <tr *zyfraRowDef="let row; columns: columns;" [zyfra-row]="row"></tr>
+  </zyfra-table>
+</div>

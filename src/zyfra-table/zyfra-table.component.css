@@ -1,0 +1,55 @@
+.zyfra-table {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  box-shadow: 0px 2px 8px rgba(102, 119, 153, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  outline: none;
+}
+
+.zyfra-table tr.mat-row:hover, .zyfra-table tr.mat-footer-row:hover {
+  background-color: rgba(61, 143, 64, 0.2);
+}
+
+.zyfra-table tr.mat-row,
+.zyfra-table tr.mat-footer-row {
+  height: 32px;
+}
+
+.zyfra-table tr.mat-header-row {
+  background-color: #E7E9EF;
+  height: 48px;
+}
+
+.mat-header-cell {
+  font-size: 13px;
+  color: #353E50;
+  font-weight: 700;
+}
+
+.zyfra-table th.mat-header-cell, .zyfra-table td.mat-cell, .zyfra-table td.mat-footer-cell {
+  border-bottom-width: 1px;
+  padding: 0 4px;
+}
+
+.zyfra-table td.mat-cell:not(:last-child) {
+  border-right: 1px solid #EDEFF3;
+}
+
+.zyfra-table .zyfra-row-selected {
+  background-color: rgba(61, 143, 64, 0.2);
+  box-shadow: 4px 0px 0px 0px #49AB4D inset;
+}
+
+.zyfra-table th.mat-header-cell:first-of-type,
+.zyfra-table td.mat-cell:first-of-type,
+.zyfra-table td.mat-footer-cell:first-of-type {
+  padding-left: 8px;
+}
+
+.zyfra-table th.mat-header-cell:first-of-type,
+.zyfra-table td.mat-cell:first-of-type,
+.zyfra-table td.mat-footer-cell:first-of-type {
+  padding-right: 8px;
+}
